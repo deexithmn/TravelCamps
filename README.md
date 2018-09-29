@@ -1,2 +1,2 @@
 # TravelCamps
-WeB application built using NodeJs, ExpressJS, MongoDB
+Web application built using NodeJs, ExpressJS, MongoDB
