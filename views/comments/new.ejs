@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+<br>
+<div class="ui middle aligned container gird">
+<h1>Add a new comment on <%=camp.name %></h1>
+
+<div class="ui container centered segment">
+    <form class="ui form" method="POST" action="/camps/<%=camp._id%>/comments/">
+        <label>
+            Comment
+        </label>
+        <div class="field">
+             <textarea placeholder="Comment" name="newComment"></textarea>
+        </div>
+
+     <button class="ui primary large button">Add</button>
+   </form>
+  
+    </div>
+    <div class="ui two bottom attached buttons">
+       <a href="/" class="ui button" >Home</a>
+       <a href="/camps" class="ui button">Back</a>
+    </div>
+</div>

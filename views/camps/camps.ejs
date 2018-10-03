@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+<br>
+<br>
+<div class="ui container centered">
+    <h2 class="ui center aligned icon header">
+          <i class="circular home icon"></i>
+          Camps
+           <a href="/camps/new" class="fluid ui button">Add New Camp</a>
+    </h2>
+    
+    <div class="ui four column doubling segment stackable grid container">
+ 
+                <% camps.forEach(function(camp){ %>
+                 <div class="column">
+                     <div class="ui centered images segment">
+                            <p>
+                                <h4><%= camp.name %></h4>
+                                <img class="ui medium image" src="<%=camp.image %>"> <br>
+                                <a class="ui secondary basic centered button" href="/camps/<%=camp._id %>" >More Info</a>
+                            </p>
+                      </div>
+                        </div>
+                <% }) %>  
+    </div> 
+    <a href="/camps/new" class="fluid ui button">Add New Camp</a>
+</div>
+
+
+<br>
+ <br>
+
+
+<% include ../partials/footer %>

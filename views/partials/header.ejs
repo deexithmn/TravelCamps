@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title> Travel Camp</title>
+    <link rel="shortcut icon" href="views/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/app.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css" type="text/css">
+</head>
+
+<body>
+    <div class="ui menu">
+      <div class="item">Camps</div>
+      <a class="item" href="/">Home</a>
+      <a class="item" href="/camps">All Camps</a>
+      <a class="item" href="/camps/new">Add Camp</a>
+      <div class="right menu">
+        <% if(!currentUser) { %>
+         <a class="item" href="/login">Login</a>
+          <a class="item" href="/register">Sign Up</a>
+          <% } else { %>
+             <div class="item"><%= currentUser.firstName %> </div>
+            <a class="item"href="/logout">Logout</a>
+            
+        <% } %>
+      </div>
+    </div>
+    
+    <% if(error && error.length>0){ %>
+    <div class="ui container">
+        <div class="ui warning message">
+          <div class="header">
+            <%= error %>
+          </div>
+        </div>
+    </div>
+    <% } %>
+     <% if(success && success.length>0){ %>
+    <div class="ui container">
+        <div class="ui positive message">
+          <div class="header">
+            <%= success %>
+          </div>
+        </div>
+    </div>
+    
+    <% } %>
+ <br>
+    <br>

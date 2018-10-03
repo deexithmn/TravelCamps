@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+
+
+<br>
+<br>
+<br>
+
+<div class="ui raised very stacked padded centerd text container segment">
+    <h1 class="ui header">Edit <%= camp.name %> </h1>
+
+    
+    <form action="/camps/<%= camp._id %>?_method=PUT" method = "POST" class="ui form">
+        <div class="field">
+            <label>Camp Name</label>
+            <input placeholder="Camp Name" name="changedCamp[name]" type="text" value=<%= camp.name %>>
+        </div>
+        
+        <div class="field">
+            <div class="ui labeled input">
+              <div class="ui label">
+                    Url:
+              </div>
+              <input type="text" placeholder="Image Url" name="changedCamp[image]" value=<%=camp.image %>>
+            </div>
+        </div>
+        
+        <div class="field">
+            <label>Description</label>
+            <textarea name="changedCamp[description]"><%= camp.description %></textarea>
+        </div>
+
+        <button class="fluid ui primary button">Submit Changes</button>
+    </form>
+    <div class="ui two bottom attached buttons">
+       <a href="/" class="ui button" >Home</a>
+       <a href="/camps" class="ui button">Back</a>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer %>

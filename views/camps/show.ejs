@@ -1,0 +1,83 @@
+<% include ../partials/header %>
+
+<BR>
+<BR>
+<BR>
+<div class="ui middle aligned container">
+    <div class="ui grid">
+      <div class="four wide column">
+            <div class="ui vertical buttons">
+              <button class="ui active button">Feed</button>
+              <button class="ui button">Messages</button>
+              <button class="ui button">Events</button>
+              <button class="ui button">Photos</button>
+            </div>
+      </div>
+      <div class="twelve wide column">
+        <h3 class="ui centered aligned"><%= campfound.name %></h3>
+        <div class="ui segment" id="image_show">
+            <img class="ui fluid rounded image" src="<%= campfound.image %>">
+        </div>
+        <div class="ui padded segment">
+     
+            <h3 class="right floated column"><em><%= campfound.author.firstName %></em></h3>
+            
+            <h5 class=""><%= campfound.description %></h5>
+        </div>
+        <div class="ui fluid">
+            <% if((user) && (campfound.author.id.equals(user._id)) ){ %>
+            
+                <a class="ui orange large button" href="/camps/<%= campfound._id %>/edit">Edit</a>
+                <form class="inlineDisplay" action="/camps/<%= campfound._id %>?_method=DELETE" method="POST">
+                    <Button class="ui red large button" >Delete</Button>
+                </form>
+            <% } %>
+         <a href="/camps/<%= campfound._id %>/comments/new"><button class="ui right floated button">Add Review</button></button></a>
+         </div>
+         <br>
+         <br>
+         <br>
+       
+       
+            <% campfound.comments.forEach(function(comment){ %>
+             <div class="ui container segment">
+                 <% if (campfound.comments) {%>
+                <div class="ui container fluid">
+                    <div >
+                        <div class="ui left aligned inlineDisplay">
+                            <%= comment.content %>
+                        </div>
+                        <h5 class="ui right aligned ">
+                            <strong><em><%= comment.author.firstName %></em></strong>
+                        </h5>
+                    </div>
+                    <hr>
+                    <% if( (user) && comment.author.id.equals(user._id)){ %>
+                        <div >
+                        <a class="mini ui orange button" href="/camps/<%=campfound.id %>/comments/<%=comment._id%>/edit">Edit</a>
+                        <form action="/camps/<%=campfound.id %>/comments/<%=comment._id%>?_method=DELETE" method="POST" class="inlineDisplay">
+                            <button class="mini ui red button" >Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+                    
+                    
+                 <br>
+                </div>
+                <% } %>
+                  </div>
+            <% }) %>
+           
+            
+      
+
+        <a href="/" class="ui primary button">Home</a>
+        <a href="/camps" class="ui basic button">Back</a>
+      </div>
+     </div>
+</div>
+
+ <!--<p class="tradeMark">Camps @ Deexith </p>-->
+ <br>
+ <br>
+ <% include ../partials/footer %>

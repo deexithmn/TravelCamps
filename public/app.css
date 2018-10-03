@@ -1,0 +1,49 @@
+body{
+    background-color: #272727;
+    color: white;
+}
+
+h1{
+    color:#272727;
+    text-align: center;
+}
+.tradeMark{
+    position: fixed; 
+    bottom: 0; 
+    width:100%; 
+    text-align: center;
+}
+li{
+    list-style-type: none;
+}
+#inputForm{
+    width: 30%;
+    margin: 35px auto;
+}
+
+.moreinfo{
+    text-align: center;
+}
+
+#image_show{
+    padding: 0;
+}
+
+.inlineDisplay{
+    display: inline;
+}
+
+#headImage{
+    width: 100%;
+    height: 8.5em;
+    z-index: 2;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1533390446496-2bfd4671cb47?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b2141553a1136989b9b05afc7e1d36dd&auto=format&fit=crop&w=1534&q=80');
+    background-size: cover; 
+	background-position: center;
+	color: white;
+	font-family: 'Great Vibes', cursive;
+	font-size: 50px;
+	transition: background 2.5s;
+	padding-top: 2.0em;
+}
